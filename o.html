@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body {
+        margin: 0px;
+    }
+
+    .trello-board {
+        background-color: cadetblue;
+        height: 100%;
+    }
+
+    .card {
+        background-color: red;
+        width: 250px;
+        height: 250px;
+        margin: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container-one">
+        <div id="child-container"></div>
+    </div>
+    <div id="container-two"></div>
+    <button id="moveButton">the button</button>
+    <div id="trello-board"></div>
+    <div id="trello-board-1" class="trello-board"></div>
+    <div id="trello-board-2" class="trello-board"></div>
+    <div id="trello-board-3" class="trello-board"></div>
+    <button id="moveButton">the button</button>
+
+    <div id="trello-board"></div>
+
+    <button id="Delet">DELET</button>
+    <button id="EDIT">EDIT</button>
+    <button id="Up"> ^ </button>
+    <button id="Down"> v </button>
+    <button id="Right"> > </button>
+    <button id="Left"> < </button>
+    <script>
+    function handleDeletedClicked() {
+      alert('Delet was clicked');
+    }
+
+    function handleEditClicked() {
+       alert('Edit was clicked');
+    }
+
+    function handleMoveUpClicked() {
+       alert('Up was cliced');
+    }
+    function handleMoveDownClicked() {
+       alert('Down was cliced');
+    }
+
+    function handleMoveRightClicked() {
+       alert('Right was clicked');
+    }
+    function handleMoveLeftClicked(){
+       alert('Left was clicked');
+    }
+
+
+    function createButton(text, clickhandler) {
+        var button = document.createElement('div');
+        button.appendChild(document.createTextNode("clickMe"));
+        button.addEventListener('click', handleClickMeClicked);
+
+        return button;
+    }
+
+
+
+    function createAwesomeDiv(parentDivId) {
+        //1. Identify the div that the new div is going into
+
+        var parent = document.getElementById(parentDivId);
+
+        //2. Create a new div
+        //      -set attributes on div
+
+        var newDiv = document.createElement('div');
+        newDiv.setAttribute('class', 'card');
+
+        newDiv.appendChild(createButton('Delet', handlerDeletClicked));
+        newDiv.appendChild(createButton('EDIT', handlerEditClicked));
+        newDiv.appendChild(createButton('^', handleMoveUpClicked));
+        newDiv.appendChild(createButton('v', handleMoveDownClicked));
+        newDiv.appendChild(createButton('>', handleMoveRightClicked));
+        newDiv.appendChild(createButton('<', handleMoveLeftClicked));
+
+
+        //3. Add new div to parent div.
+        parent.appendChild(newDiv);
+
+    }
+
+    createAwesomeDiv('trello-board-1');
+    createAwesomeDiv('trello-board-2');
+    createAwesomeDiv('trello-board-3');
+    </script>
+</body>
+
+</html>

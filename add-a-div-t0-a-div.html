@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		margin: 0px;
+	}
+		#trello-board {
+			background-color: cadetblue;
+			height: 100%;
+		}
+		.card {
+           background-color: red;
+           width: 250px;
+           height: 250px;
+           margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="trello-board"></div>
+	<script>
+		function createAwesomeDiv(parentDivId) {
+            //1. Identify the div that the new div is going into
+
+            var parent = document.getElementById(parentDivId);
+
+            //2. Create a new div
+            //      -set attributes on div
+
+            var newDiv = document.createElement('div');
+            newDiv.setAttribute('class', 'card');
+
+            //3. Add new div to parent div.
+            parent.appendChild(newDiv);
+		}
+
+		createAwesomeDiv('trello-board');
+
+		createAwesomeDiv('trello-board');
+
+
+
+	</script>
+	
+</body>
+</html>

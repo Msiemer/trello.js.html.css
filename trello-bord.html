@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tello-Project</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <script type="" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+    <style>
+    body,
+    html {
+        background-color: #B0F9DD;
+        height: 100%;
+        margin: 0;
+    }
+
+    .swimlane {
+        background-color: cadetblue;
+        border: 1px solid black;
+        border-radius: 5px;
+        height: 500px;
+        width: 200px;
+        margin: 10px;
+    }
+
+    .card-body {
+        height: 500px;
+    }
+
+    .Header-1 {
+        margin: 10px;
+    }
+
+    .btn {
+        margin: 5px;
+        margin-left: 9px;
+    }
+    .card {
+    	border: 2px solid black;
+    	background-color: red;
+    }
+
+    #child-container {
+    	width: auto;
+    	max-height: 100px;
+    	overflow: auto;
+    	background-color: white;
+    	border: black solid 1px;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <button onclick="handlerEditClicked(
+	)" id="EDIT" class="btn btn-info">EDIT</button>
+    <button onclick="handleMoveUpClicked(
+	)" id="Up" class="btn btn-info">MoveUp</button>
+    <button onclick="handleMoveDownClicked(
+	)" id="Down" class="btn btn-info">MoveDown</button>
+    <button onclick="handleMoveRightClicked(
+	)" id="Right" class="btn btn-info">MoveRight</button>
+    <button onclick="handleMoveLeftClicked(
+	)" id="Left" class="btn btn-info">MoveLeft</button>
+    <button onclick="handleAddSwimLaneClicked(
+	)" type="button" class="btn btn-info">Add SwimLane</button>
+    <button onclick="handleDeletSwimLaneClicked(
+	)" type="button" class="btn btn-info">Delet SwimLane</button>
+    <button onclick="handleAddTextBoxToSwimLaneClicked(
+	)" type="button" class="btn btn-info">Add TextBox To SwimLane</button>
+    <button onclick="handleDeletTextBoxClicked(
+	)" type="button" class="btn btn-info">Delet TextBox From Swimlane</button>
+    <div id="container-1" class="container-1">
+        <div class="card text-white" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <center><div id="child-container"><input type="TextBox"></div></center>
+            </div>
+        </div>
+    </div>
+    <div id="card"></div>
+    <input type="" id="tb">
+    <script>
+    	// i need to make a function that pops up a swimlane when i click a button
+    	// i need to make a function to add a name to my swimlane 
+    	// i need to make a function that will allow me to edit the swimlane name
+        // i need to make a function that will allow me to add a textbox to my swimlane
+        // i need to create a function to ask the youser if they want to delete the swimlane 
+
+    function handlerEditClicked() {
+        alert('You clicked Edit');
+    }
+    function handleMoveUpClicked() {
+        alert('You clicked MoveUp');
+    }
+    function handleMoveDownClicked() {
+        alert('You clicked MoveDown');
+    }
+    function handleMoveRightClicked() {
+        alert('You clicked MoveRight');
+    }
+    function handleMoveLeftClicked() {
+        alert('You clicked MoveLeft');
+    }
+
+    function handleAddSwimLaneClicked() {
+        alert('You clicked Add SwimLane');
+    }
+    function handleDeletSwimLaneClicked() {
+        alert('Are You shour you want to Delet The SwimLane');
+    }
+    function handleAddTextBoxToSwimLaneClicked() {
+        alert('You clicked Add TextBox To SwimLane');
+    }
+    function handleDeletTextBoxClicked() {
+        alert('Are You shour you want to Delet The TextBox');
+    }
+
+    function createButton(text, clickhandler) {
+        var button = document.createElement('div');
+        button.appendChild(document.createTextNode("clickMe"));
+        button.addEventListener('click', handleClickMeClicked);
+
+        return button;
+    }
+    
+    var input = document.createElement('input');
+    input.setAttribute('id', 'tb');
+
+    function createAwesomeDiv(parentDivId) {
+        //1. Identify the div that the new div is going into
+
+        var parent = document.getElementById(parentDivId);
+
+        //2. Create a new div
+        //      -set attributes on div
+
+        var addDiv = document.createElement('div');
+        addDiv.setAttribute('class', 'card');
+
+        addDiv.appendChild(createButton('EDIT', handlerEditClicked));
+        addDiv.appendChild(createButton('Up', handleMoveUpClicked));
+        addDiv.appendChild(createButton('Down', handleMoveDownClicked));
+        addDiv.appendChild(createButton('Right', handleMoveRightClicked));
+        addDiv.appendChild(createButton('Left', handleMoveLeftClicked));
+
+        addDiv.appendChild(createButton('A-S-L', handleAddSwimLaneClicked));
+        addDiv.appendChild(createButton('D-S-L', handleDeletSwimLaneClicked));
+        addDiv.appendChild(createButton('A-TB', handleAddTextBoxToSwimLaneClicked));
+        addDiv.appendChild(createButton('D-TB', handleDeletTextBoxClicked));
+
+
+        //3. Add new div to parent div.
+        parent.appendChild(addDiv);
+
+    }
+    </script>
+</body>
+
+</html>

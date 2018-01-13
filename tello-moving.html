@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>the end of the world</title>
+    <style>
+    #container-one {
+        border-radius: 5px;
+        border: 3px solid blue;
+        width: 1000px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #container-two {
+        border-radius: 5px;
+        border: 3px solid red;
+        width: 1000px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #container-three {
+        border-radius: 5px;
+        border: 3px solid green;
+        width: 1000px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #container-four {
+        border-radius: 5px;
+        border: 3px solid yellow;
+        width: 1000px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #container-five {
+        border-radius: 5px;
+        border: 3px solid black;
+        width: 1000px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #container-six {
+        border-radius: 5px;
+        border: 3px solid brown;
+        width: 1000px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    #child-container {
+        background-color: yellow;
+        width: 199px;
+        height: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <center>
+        <p><small>Copyright 1999-2050 by Refsnes Data</small></p>
+        <h6>Copyright 1999-2050 by Refsnes Data</h6></center>
+    <center>
+        <div id="container-one">
+            <center>
+                <div id="child-container"></div>
+            </center>
+        </div>
+    </center>
+    <center>
+        <div id="container-two"></div>
+    </center>
+    <center>
+        <div id="container-three"></div>
+    </center>
+    <center>
+        <div id="container-four"></div>
+    </center>
+    <center>
+        <div id="container-five"></div>
+    </center>
+    <center>
+        <div id="container-six"></div>
+    </center>
+    <center>
+        <button id="move">Double-Click-Then-Move-The-Yellow-Block-If-You-Dare</button>
+    </center>
+    <button onclick="myFunction()">Try it</button>
+    <script>
+    function myFunction() {
+        alert(location.hostname);
+    }
+    /*
+                  Whenever the Move button is clicked, we want to move the
+                  child container from its current container to the other
+                  one.
+                */
+    var button = document.getElementById('move');
+
+    button.addEventListener('click', function() {
+        var childContainer = document.getElementById('child-container');
+        var parent = childContainer.parentNode;
+
+        parent.removeChild(childContainer);
+
+        if (parent.id === 'container-one') {
+            // if parent is container-one, put child in container-two
+            //find container-two
+            var containerTwo = document.getElementById('container-two');
+            //append child to container-two
+            containerTwo.appendChild(childContainer);
+            document.body.style.background = blue;
+        } else if (parent.id === 'container-two') {
+
+            var containerThree = document.getElementById('container-three');
+            containerThree.appendChild(childContainer);
+        } else if (parent.id === 'container-three') {
+
+            var containerFour = document.getElementById('container-four');
+            containerFour.appendChild(childContainer);
+        } else if (parent.id === 'container-four') {
+
+            var containerFive = document.getElementById('container-five');
+            containerFive.appendChild(childContainer);
+        } else if (parent.id === 'container-five') {
+
+            var containerSix = document.getElementById('container-six');
+            containerSix.appendChild(childContainer);
+        } else {
+            // if parent is container-two, put child in container-one
+            var containerOne = document.getElementById('container-one');
+            containerOne.appendChild(childContainer);
+        }
+    });
+    </script>
+</body>
+
+</html>
